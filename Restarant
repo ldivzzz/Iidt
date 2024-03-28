@@ -1,0 +1,19 @@
+function calculateTip(billAmount, serviceQuality, numPeople) {
+  if (typeof billAmount !== 'number' || typeof serviceQuality !== 'number' || typeof numPeople !== 'number') {
+    throw new Error('Invalid input. All parameters should be numbers.');
+  }
+
+  if (billAmount < 0 || serviceQuality < 1 || serviceQuality > 5 || numPeople < 1) {
+    throw new Error('Invalid input. Bill amount should be non-negative, service quality should be between 1 and 5, and number of people should be at least 1.');
+  }
+
+  const tipPerPerson = (billAmount * (serviceQuality / 100)) / numPeople;
+  return tipPerPerson;
+}
+
+// Example usage:
+const tip1 = calculateTip(500, 5, 2);
+console.log(tip1); // Output: 12.5
+
+const tip2 = calculateTip(1000, 3, 5);
+console.log(tip2); // Output: 6
