@@ -1,0 +1,38 @@
+class ShoppingCart {
+  constructor() {
+    this.items = [];
+    this.subTotal = 0;
+  }
+
+  addItem(item, quantity, price) {
+    this.items.push({ item, quantity, price });
+    this.subTotal += quantity * price;
+  }
+
+  removeItem(itemIndex) {
+    const item = this.items[itemIndex];
+    this.items.splice(itemIndex, 1);
+    this.subTotal -= item.quantity * item.price;
+  }
+
+  getItems() {
+    return this.items;
+  }
+
+  getSubTotal() {
+    return this.subTotal;
+  }
+}
+
+const cart = new ShoppingCart();
+
+cart.addItem('Apple Juice', 1, 250);
+cart.addItem('Grapes Juice', 2, 125);
+
+console.log(cart.getItems());
+console.log(Subtotal: ${cart.getSubTotal()});
+
+cart.removeItem(0);
+
+console.log(cart.getItems());
+console.log(Subtotal: ${cart.getSubTotal()});
