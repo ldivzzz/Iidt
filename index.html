@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    /* Provide your own CSS styles here for the table and cards */
+  </style>
+</head>
+
+<body>
+
+  <div id="dashboard">
+    <h1>Dashboard</h1>
+    <button id="create-employee">Create Employee</button>
+
+    <h2>Employees</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Age</th>
+          <th>Start Date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody id="employees-table-body"></tbody>
+    </table>
+  </div>
+
+  <script>
+    // Fetch employees from the API and display the table
+    async function fetchEmployees() {
+      const response = await fetch('http://localhost:3000/api/employees');
+      const employees = await response.json();
+
+      const employeesTableBody = document.getElementById('employees-table-body');
+      employees.forEach(employee => {
+        const row = `<tr>
+          <td>${employee.name}</td>
+          <td>${employee.position}</td>
+          <td>${employee.office}</td>
+          <td>${employee.age}</td>
+          <td>${employee.startDate}</td>
+          <td>${employee.salary}</td>
+        </tr>`;
+        employeesTableBody.innerHTML += row;
+      });
+    }
+    fetchEmployees();
+
+    // Create employee
