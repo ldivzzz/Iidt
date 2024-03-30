@@ -1,0 +1,52 @@
+
+/* Variables */
+:root {
+    --primary-color: #333;
+    --secondary-color: #666;
+    --spacing: 1rem;
+}
+
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+th,
+td {
+    padding: var(--spacing);
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+td {
+    color: #fff;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: scroll;
+    }
+
+    th,
+    td {
+        white-space: nowrap;
+    }
+}
